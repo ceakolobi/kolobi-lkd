@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Graph (Grafos Inovadores)",
+  "version": "0.1.0",
+  "description": "Mapeia relações invisíveis no LinkedIn usando grafos.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://www.linkedin.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
