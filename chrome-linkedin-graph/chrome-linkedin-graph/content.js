@@ -1,8 +1,22 @@
+function getText(selector) {
+  const el = document.querySelector(selector);
+  return el ? el.innerText.trim() : "";
+}
+
 function capturarPerfil() {
-  const nome = document.querySelector("h1")?.innerText || "Desconhecido";
-  const cargo = document.querySelector(".text-body-medium")?.innerText || "Sem cargo";
+  const nome =
+    getText("h1") ||
+    getText(".pv-text-details__left-panel h1") ||
+    "Desconhecido";
+
+  const cargo =
+    getText(".text-body-medium") ||
+    getText(".pv-text-details__left-panel .text-body-medium") ||
+    "Sem cargo";
+
   const empresa =
-    document.querySelector("a[href*='company'] span")?.innerText ||
+    getText("a[href*='company'] span") ||
+    getText(".pv-text-details__right-panel-item-text") ||
     "Empresa não encontrada";
 
   return { nome, cargo, empresa };
